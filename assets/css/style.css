@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --rounded-20: 20px;
+  --padding-20: 20px;
+  --blue-dark: #316cc4;
+  --blue-color: #81b2fd;
+  --blue-light: #c1d9fe;
+  --grey: #f3f8ff;
+  --white: #fff;
+  --pink: #fc9fa0;
+  --red: #fae4e4;
+  --yellow: #c4ac6f;
+  --fs-12: 12px;
+  --fw-500: 500;
+}
+
+body {
+  padding: var(--padding-20);
+}
+
+.wrapper {
+  border-radius: var(--rounded-20);
+  border: 1px solid var(--blue-color);
+  overflow: hidden;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: var(--blue-color) !important;
+}
+.nav-item .nav-link.active {
+  border-bottom: 2px solid var(--blue-color);
+}
+.search-bar {
+  min-width: 300px;
+  position: relative;
+
+  & input {
+    width: 100%;
+    border-radius: var(--rounded-20);
+    padding: 10px 15px;
+    border: 0;
+    box-shadow: rgba(129, 178, 253, 0.25) 0px 30px 60px -12px inset,
+      rgba(129, 178, 253, 0.3) 0px 18px 36px -18px inset;
+  }
+  & button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-10px, -50%);
+    background-color: var(--blue-color);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: var(--white);
+  }
+}
+
+::placeholder {
+  color: var(--blue-color);
+  font-weight: var(--fw-500);
+}
+.content {
+  background: var(--grey);
+}
+
+.btn-light {
+  background-color: var(--white) !important;
+  font-size: var(--fs-12) !important;
+}
+
+.display-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  display: flex;
+  flex-direction: row !important;
+  overflow: hidden;
+  & .month {
+    width: 35px;
+    background-color: var(--blue-color);
+    & h5 {
+      rotate: -90deg;
+      color: var(--white);
+      font-weight: var(--fw-500);
+      margin: 0;
+      text-wrap: nowrap;
+    }
+  }
+}
+
+.btn-outline-primary{
+  background: var(--blue-light) !important;
+  color: var(--blue-dark) !important;
+  font-size: var(--fs-12) !important;
+}
