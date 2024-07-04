@@ -13,7 +13,7 @@
   <body>
     <div class="container-fluid wrapper">
       <header>
-        <nav class="navbar navbar-expand-sm">
+        <nav class="navbar navbar-expand-lg">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
               <img
@@ -36,32 +36,55 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li class="nav-item me-3">
                   <a class="nav-link active" aria-current="page" href="#">
                     <i class="fa-solid fa-calendar-days"></i> Calender
                   </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item me-3">
                   <a class="nav-link" href="#">
                     <i class="fa-solid fa-chart-pie"></i> Analytics</a
                   >
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item me-3">
                   <a class="nav-link" href="#">
                     <i class="fa-solid fa-table-cells"></i> Dashboard</a
                   >
                 </li>
 
                 <li class="nav-item my-auto me-3">
+                  <button class="btn btn-light-blue shadow-sm">
+                    <i class="fa-solid fa-plus"></i> Add Checklist
+                  </button>
+                </li>
+
+                <li class="nav-item my-auto me-3">
+                  <button class="btn btn-light-blue shadow-sm">
+                    <i class="fa-solid fa-umbrella-beach"></i> Add Leaves
+                  </button>
+                </li>
+
+                <li class="nav-item my-auto me-3">
+                  <button class="btn btn-outline-danger shadow-sm">
+                    <i class="fa-solid fa-ban"></i> Clear All
+                  </button>
+                </li>
+
+                <li class="nav-item my-auto me-3">
                   <div class="search-bar">
-                    <input type="text" placeholder="Search Checklist here..." name="" id="" />
+                    <input
+                      type="text"
+                      placeholder="Search Checklist here..."
+                      name=""
+                      id=""
+                    />
                     <button class="btn">
                       <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                   </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item my-auto">
                   <a class="nav-link p-0 profile" href="#">
                     <img src="assets/images/profile.png" alt="" />
                   </a>
@@ -71,67 +94,648 @@
           </div>
         </nav>
       </header>
- 
+
       <div class="row content py-3">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-6 col-lg-8">
           <div id="calendar"></div>
         </div>
-        <div class="col-12 col-md-4">
+
+        <div class="col-12 col-md-6 col-lg-4">
           <div class="row">
             <div class="col-12 px-0 mb-3">
-              <div class="btn btn-light">
+              <div class="btn btn-light-sm">
                 <i class="fa-solid fa-arrow-down-wide-short"></i> Sort Checklist
               </div>
-              <div class="btn btn-light">
+              <div class="btn btn-light-sm">
                 <i class="fa-solid fa-bookmark"></i> Bookmarked
               </div>
-              <div class="btn btn-light">
+              <div class="btn btn-light-sm">
                 <i class="fa-solid fa-filter"></i> Category Filter
               </div>
             </div>
             <div class="col-12">
-              <div class="card">
+              <div class="card mb-3">
                 <div class="month display-center">
                   <h5>July 01</h5>
                 </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-8">
+                      <div
+                        class="d-flex align-items-center justify-content-start"
+                      >
+                        <h5 class="text-blue fw-bold mb-2">
+                          <input
+                            class="btn-box-18 accent-blue me-2"
+                            type="checkbox"
+                            value=""
+                            id="financeHead"
+                          />
+                          <label for="financeHead"> Finance Checklist </label>
+                        </h5>
+                      </div>
                       <ul class="list-group mb-3">
-                        <li class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0">
-                            <div class="text-truncate d-flex align-items-center justify-content-start me-2">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="firstCheckbox">
-                                <label class="form-check-label" for="firstCheckbox">First checkbox</label>
-                            </div>
-                            <span class="">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </span>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center py-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="firstCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="firstCheckbox"
+                            >
+                              Pay figma payment
+                            </label>
+                          </div>
+                          <span class="cursor-pointer">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
                         </li>
-                        <li class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0">
-                            <div class="text-truncate d-flex align-items-center justify-content-start me-2">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="secondCheckbox">
-                                <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
-                            </div>
-                            <span class="">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </span>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="secondCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="secondCheckbox"
+                            >
+                              Adobe Premier pro
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
                         </li>
-                        <li class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0">
-                            <div class="text-truncate d-flex align-items-center justify-content-start me-2">
-                                <input class="form-check-input me-2" type="checkbox" value="" id="thirdCheckbox">
-                                <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
-                            </div>
-                            <span class="">
-                              <i class="fa-regular fa-trash-can"></i>
-                            </span>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="thirdCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="thirdCheckbox"
+                            >
+                              Canva pro plan render
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
                         </li>
-                    </ul>
+                      </ul>
                     </div>
-                    <div class="col-4"></div>
+                    <div class="col-4">
+                      <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
+                      <div class="display-center h-100">
+                        <div class="progress-container">
+                          <div class="progress-circle" id="progress-circle">
+                            <div class="progress-inner-circle"></div>
+                            <div class="progress-text">
+                              <h5>5</h5>
+                              <p>Days Left</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <button class="btn btn-sm btn-outline-primary">Edit Checklist <i class="fa-regular fa-pen-to-square"></i></button>
-                  <button class="btn btn-sm btn-outline-primary"> Share Checklist  <i class="fa-solid fa-share-nodes"></i> </button>
-                  <button class="btn btn-sm btn-outline-primary">3 Files Attached <i class="fa-solid fa-pencil"></i> </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Share Checklist <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    3 Files Attached <i class="fa-solid fa-pencil"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card mb-3">
+                <div class="month display-center bg-pink">
+                  <h5>July 01</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      <div
+                        class="d-flex align-items-center justify-content-start"
+                      >
+                        <h5 class="text-blue fw-bold mb-2">
+                          <input
+                            class="btn-box-18 accent-blue me-2"
+                            type="checkbox"
+                            value=""
+                            id="financeHead"
+                          />
+                          <label for="financeHead"> Finance Checklist </label>
+                        </h5>
+                      </div>
+                      <ul class="list-group mb-3">
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center py-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="firstCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="firstCheckbox"
+                            >
+                              Pay figma payment
+                            </label>
+                          </div>
+                          <span class="cursor-pointer">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="secondCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="secondCheckbox"
+                            >
+                              Adobe Premier pro
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="thirdCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="thirdCheckbox"
+                            >
+                              Canva pro plan render
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                      <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
+                      <div class="display-center h-100">
+                        <div class="progress-container">
+                          <div class="progress-circle" id="progress-circle">
+                            <div class="progress-inner-circle"></div>
+                            <div class="progress-text">
+                              <h5>5</h5>
+                              <p>Days Left</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Share Checklist <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    3 Files Attached <i class="fa-solid fa-pencil"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="card mb-3">
+                <div class="month display-center">
+                  <h5>July 01</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      <div
+                        class="d-flex align-items-center justify-content-start"
+                      >
+                        <h5 class="text-blue fw-bold mb-2">
+                          <input
+                            class="btn-box-18 accent-blue me-2"
+                            type="checkbox"
+                            value=""
+                            id="financeHead"
+                          />
+                          <label for="financeHead"> Finance Checklist </label>
+                        </h5>
+                      </div>
+                      <ul class="list-group mb-3">
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center py-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="firstCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="firstCheckbox"
+                            >
+                              Pay figma payment
+                            </label>
+                          </div>
+                          <span class="cursor-pointer">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="secondCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="secondCheckbox"
+                            >
+                              Adobe Premier pro
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="thirdCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="thirdCheckbox"
+                            >
+                              Canva pro plan render
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                      <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
+                      <div class="display-center h-100">
+                        <div class="progress-container">
+                          <div class="progress-circle" id="progress-circle">
+                            <div class="progress-inner-circle"></div>
+                            <div class="progress-text">
+                              <h5>5</h5>
+                              <p>Days Left</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Share Checklist <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    3 Files Attached <i class="fa-solid fa-pencil"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card mb-3">
+                <div class="month display-center bg-yellow">
+                  <h5>July 01</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      <div
+                        class="d-flex align-items-center justify-content-start"
+                      >
+                        <h5 class="text-blue fw-bold mb-2">
+                          <input
+                            class="btn-box-18 accent-blue me-2"
+                            type="checkbox"
+                            value=""
+                            id="financeHead"
+                          />
+                          <label for="financeHead"> Finance Checklist </label>
+                        </h5>
+                      </div>
+                      <ul class="list-group mb-3">
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center py-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="firstCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="firstCheckbox"
+                            >
+                              Pay figma payment
+                            </label>
+                          </div>
+                          <span class="cursor-pointer">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="secondCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="secondCheckbox"
+                            >
+                              Adobe Premier pro
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="thirdCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="thirdCheckbox"
+                            >
+                              Canva pro plan render
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                      <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
+                      <div class="display-center h-100">
+                        <div class="progress-container">
+                          <div class="progress-circle" id="progress-circle">
+                            <div class="progress-inner-circle"></div>
+                            <div class="progress-text">
+                              <h5>5</h5>
+                              <p>Days Left</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Share Checklist <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    3 Files Attached <i class="fa-solid fa-pencil"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="card mb-3">
+                <div class="month display-center">
+                  <h5>July 01</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-8">
+                      <div
+                        class="d-flex align-items-center justify-content-start"
+                      >
+                        <h5 class="text-blue fw-bold mb-2">
+                          <input
+                            class="btn-box-18 accent-blue me-2"
+                            type="checkbox"
+                            value=""
+                            id="financeHead"
+                          />
+                          <label for="financeHead"> Finance Checklist </label>
+                        </h5>
+                      </div>
+                      <ul class="list-group mb-3">
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center py-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="firstCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="firstCheckbox"
+                            >
+                              Pay figma payment
+                            </label>
+                          </div>
+                          <span class="cursor-pointer">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="secondCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="secondCheckbox"
+                            >
+                              Adobe Premier pro
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                        <li
+                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
+                        >
+                          <div
+                            class="text-truncate d-flex align-items-center justify-content-start me-2"
+                          >
+                            <input
+                              class="accent-blue me-2"
+                              type="checkbox"
+                              value=""
+                              id="thirdCheckbox"
+                            />
+                            <label
+                              class="form-check-label text-truncate"
+                              for="thirdCheckbox"
+                            >
+                              Canva pro plan render
+                            </label>
+                          </div>
+                          <span class="">
+                            <i
+                              class="fa-regular fa-trash-can cursor-pointer text-blue"
+                            ></i>
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                      <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
+                      <div class="display-center h-100">
+                        <div class="progress-container">
+                          <div class="progress-circle" id="progress-circle">
+                            <div class="progress-inner-circle"></div>
+                            <div class="progress-text">
+                              <h5>5</h5>
+                              <p>Days Left</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    Share Checklist <i class="fa-solid fa-share-nodes"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                    3 Files Attached <i class="fa-solid fa-pencil"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -140,6 +744,247 @@
       </div>
     </div>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md"
+      >
+        <div class="modal-content">
+          <div class="modal-header py-4 z-index-10">
+            <i class="fa-solid fa-bookmark modal_bookmark"></i>
+            <!-- <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button> -->
+            <button class="btn btn-share p-0 shadow-sm">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-9">
+                <div class="d-flex align-items-center justify-content-start">
+                  <h5 class="text-muted fw-bold mb-2">
+                    <input
+                      class="btn-box-18 accent-blue me-2"
+                      type="checkbox"
+                      value=""
+                      id="financeHead"
+                    />
+                    <label for="financeHead"> Finance Checklist </label>
+                  </h5>
+                </div>
+                <ul class="list-group mb-3 col-8">
+                  <li
+                    class="list-group-item border-0 d-flex justify-content-between align-items-center py-0 bg-transparent text-muted"
+                  >
+                    <div
+                      class="text-truncate d-flex align-items-center justify-content-start me-2"
+                    >
+                      <input
+                        class="accent-blue me-2"
+                        type="checkbox"
+                        value=""
+                        id="firstCheckbox"
+                      />
+                      <label
+                        class="form-check-label text-truncate"
+                        for="firstCheckbox"
+                      >
+                        Pay figma payment
+                      </label>
+                    </div>
+                    <span class="cursor-pointer">
+                      <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                    </span>
+                  </li>
+                  <li
+                    class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0 bg-transparent text-muted"
+                  >
+                    <div
+                      class="text-truncate d-flex align-items-center justify-content-start me-2"
+                    >
+                      <input
+                        class="accent-blue me-2"
+                        type="checkbox"
+                        value=""
+                        id="secondCheckbox"
+                      />
+                      <label
+                        class="form-check-label text-truncate"
+                        for="secondCheckbox"
+                      >
+                        Adobe Premier pro
+                      </label>
+                    </div>
+                    <span class="">
+                      <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                    </span>
+                  </li>
+                  <li
+                    class="list-group-item border-0 bg-transparent pb-0 text-muted"
+                  >
+                    <i class="fa-solid fa-plus me-3"></i> add Sub-checklist
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <div class="display-center h-100">
+                  <div class="progress-container">
+                    <div class="progress-circle" id="progress-circle">
+                      <div class="progress-inner-circle"></div>
+                      <div class="progress-text text-muted">
+                        <h5>5</h5>
+                        <p>Days Left</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  Pick Start Date <i class="fa-solid fa-calendar-days"></i>
+                </button>
+                <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  Choose Repetitions <i class="fa-solid fa-rotate"></i>
+                </button>
+                <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  Pick End Date <i class="fa-solid fa-calendar-days"></i>
+                </button>
+                <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  Priority <i class="fa-solid fa-flag text-gold"></i>
+                </button>
+                <button class="btn btn-light btn-sm shadow-sm mb-3 me-2">
+                  Marketing <i class="fa-solid fa-tags"></i>
+                </button>
+                <span>
+                  <i class="fa-solid fa-fill-drip text-muted"></i>
+                  |
+                  <i class="fa-solid fa-boxes-stacked text-muted"></i>
+                </span>
+              </div>
+              <div class="col-6 d-flex align-items-center mb-3">
+                <label
+                  for="dateInput"
+                  class="form-label text-nowrap text-muted me-2 fs-12 mb-0"
+                >
+                  Repeat End On
+                </label>
+                <input
+                  type="date"
+                  class="form-control text-muted"
+                  id="dateInput"
+                />
+              </div>
+              <div class="col-6 d-flex flex-wrap gap-1 text-muted">
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Sun"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Sun">Sun</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="mon"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="mon">Mon</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Tue"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Tue">Tue</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Wed"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Wed">Wed</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Thu"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Thu">Thu</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Fri"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Fri">Fri</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Sat"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Sat">Sat</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control shadow-sm rounded-4 shadow-sm"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 100px"
+                  ></textarea>
+                  <label for="floatingTextarea2" class="text-muted"
+                    >Add Note/Comments</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-footer d-flex align-content-center justify-content-between"
+          >
+            <div>
+              <button class="btn btn-light btn-sm shadow-sm">View Files</button>
+              <button class="btn btn-light btn-sm shadow-sm">
+                Add/Edit Files
+              </button>
+            </div>
+            <div>
+              <button class="btn btn-outline-danger border-0 btn-sm shadow-sm">
+                Delete <i class="fa-regular fa-trash-can"></i>
+              </button>
+              <button class="btn btn-outline-success border-0 btn-sm shadow-sm">
+                Submit <i class="fa-solid fa-circle-check"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="fullcalendar/dist/index.global.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -149,9 +994,9 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: "dayGridMonth",
           headerToolbar: {
-            left: "prev,next today",
+            left: "prev,next",
             center: "title",
-            right: "",
+            right: "dayGridMonth,dayGridWeek,dayGridDay,yearGrid",
           },
           views: {
             yearGrid: {
@@ -177,15 +1022,15 @@
               allDay: false,
             },
           ],
+          dateClick: function (info) {
+            // Trigger the modal
+            var myModal = new bootstrap.Modal(
+              document.getElementById("exampleModal")
+            );
+            myModal.show();
+          },
         });
         calendar.render();
-
-        $("#tabs .tab").on("click", function () {
-          $("#tabs .tab").removeClass("active");
-          $(this).addClass("active");
-          var viewName = $(this).data("view");
-          calendar.changeView(viewName);
-        });
       });
     </script>
   </body>
