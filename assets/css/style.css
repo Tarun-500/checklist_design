@@ -319,3 +319,7 @@ body {
   background-color: var(--blue-light);
   
 }
+.fc .fc-button-primary:hover{
+  background-color: var(--blue-color) !important;
+  color: var(--white);
+}
