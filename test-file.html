@@ -5,71 +5,455 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script> -->
+    <script src="fullcalendar/dist/index.global.min.js"></script>
+
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="fontawesome/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
   </head>
   <body>
-    <div class="container-fluid wrapper"> 
+    <div class="container-fluid wrapper">
+      <header>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img
+                src="assets/images/logo.png"
+                alt=""
+                srcset=""
+                width="150px"
+              />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item me-3">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="fa-solid fa-calendar-days"></i> Calender
+                  </a>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-chart-pie"></i> Analytics</a
+                  >
+                </li>
+
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-table-cells"></i> Dashboard</a
+                  >
+                </li>
+
+                <li class="nav-item my-auto me-3">
+                  <button class="btn btn-light-blue shadow-sm">
+                    <i class="fa-solid fa-plus"></i> Add Checklist
+                  </button>
+                </li>
+
+                <li class="nav-item my-auto me-3">
+                  <button class="btn btn-light-blue shadow-sm">
+                    <i class="fa-solid fa-umbrella-beach"></i> Add Leaves
+                  </button>
+                </li>
+
+                <li class="nav-item my-auto me-3">
+                  <button class="btn btn-outline-danger shadow-sm">
+                    <i class="fa-solid fa-ban"></i> Clear All
+                  </button>
+                </li>
+
+                <li class="nav-item my-auto me-3">
+                  <div class="search-bar">
+                    <input
+                      type="text"
+                      placeholder="Search Checklist here..."
+                      name=""
+                      id=""
+                    />
+                    <button class="btn">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </div>
+                </li>
+                <li class="nav-item my-auto">
+                  <a class="nav-link p-0 profile" href="#">
+                    <img src="assets/images/profile.png" alt="" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
       <div class="row content py-3">
         <div class="col-12 col-md-6 col-lg-8">
           <div id="calendar"></div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4" id="event-list">
-          <!-- Event cards will be inserted here -->
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="row">
+            <div class="col-12 px-0 mb-3">
+              <div class="btn btn-light-sm">
+                <i class="fa-solid fa-arrow-down-wide-short"></i> Sort Checklist
+              </div>
+              <div class="btn btn-light-sm">
+                <i class="fa-solid fa-bookmark"></i> Bookmarked
+              </div>
+              <div class="btn btn-light-sm">
+                <i class="fa-solid fa-filter"></i> Category Filter
+              </div>
+            </div>
+            <div class="col-12" id="event-list">
+              <!-- here dynamic add cards on datewise -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md">
+    <!-- event Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md"
+      >
         <div class="modal-content">
           <div class="modal-header border-0 z-index-10">
             <i class="fa-solid fa-bookmark modal_bookmark"></i>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button class="btn btn-share p-0 shadow-sm">
+              <i class="fa-solid fa-share-nodes"></i>
+            </button>
           </div>
           <div class="modal-body">
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center justify-content-start">
                   <h5 class="text-muted fw-bold mb-2">
-                    <input class="btn-box-18 accent-blue me-2" type="checkbox" value="Finance Checklist" id="financeHead" />
+                    <input
+                      class="btn-box-18 accent-blue me-2"
+                      type="checkbox"
+                      value="Finance Checklist"
+                      id="financeHead"
+                    />
                     <label for="financeHead"> Finance Checklist </label>
                   </h5>
-                </div> 
+                </div>
+                <ul class="list-group mb-3 col-8" id="checklist">
+                  <li
+                    class="list-group-item border-0 d-flex justify-content-between align-items-center py-0 bg-transparent text-muted"
+                  >
+                    <div
+                      class="text-truncate d-flex align-items-center justify-content-start me-2"
+                    >
+                      <input
+                        class="accent-blue me-2"
+                        type="checkbox"
+                        value=""
+                        id="firstCheckbox"
+                      />
+                      <label
+                        class="form-check-label text-truncate"
+                        for="firstCheckbox"
+                      >
+                        Pay figma payment
+                      </label>
+                    </div>
+                    <span class="cursor-pointer delete-btn">
+                      <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                    </span>
+                  </li>
+                  <li
+                    class="list-group-item border-0 d-flex justify-content-between align-items-center py-0 bg-transparent text-muted"
+                  >
+                    <div
+                      class="text-truncate d-flex align-items-center justify-content-start me-2"
+                    >
+                      <input
+                        class="accent-blue me-2"
+                        type="checkbox"
+                        value=""
+                        id="secondCheckbox"
+                      />
+                      <label
+                        class="form-check-label text-truncate"
+                        for="secondCheckbox"
+                      >
+                        Adobe Premier pro
+                      </label>
+                    </div>
+                    <span class="delete-btn">
+                      <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                    </span>
+                  </li>
+
+                  <li
+                    class="list-group-item border-0 bg-transparent cursor-pointer mt-2 py-0 text-muted"
+                    id="addSubChecklist"
+                  >
+                    <i class="fa-solid fa-plus me-2"></i> add Sub-checklist
+                  </li>
+                </ul>
+              </div>
+              <div class="col-3">
+                <div class="display-center h-100">
+                  <div class="progress-container">
+                    <div class="progress-circle" id="progress-circle">
+                      <div class="progress-inner-circle"></div>
+                      <div class="progress-text text-muted">
+                        <h5>5</h5>
+                        <p>Days Left</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <!-- <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  <label for="startDate">
+                    Pick Start Date <i class="fa-solid fa-calendar-days"></i
+                  ></label>
+                  <input type="date" id="startDate" hidden />
+                </button> -->
+
+                <button
+                  class="btn btn-light btn-sm shadow-sm mb-3"
+                  id="pickStartDateToggle"
+                >
+                  Pick Start Date <i class="fa-solid fa-calendar-days"></i>
+                </button>
+                <input type="date" id="startDate" style="display: none" />
+
+                <button
+                  class="btn btn-light btn-sm shadow-sm mb-3 choose-repetition" 
+                >
+                  Choose Repetitions <i class="fa-solid fa-rotate"></i>
+                </button>
+                <!-- <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  <label for="endDate">
+                    Pick End Date <i class="fa-solid fa-calendar-days"></i>
+                  </label>
+                  <input type="date" id="endDate" hidden />
+                </button> -->
+
+                <button
+                  class="btn btn-light btn-sm shadow-sm mb-3"
+                  id="pickEndDateToggle"
+                >
+                  Pick End Date <i class="fa-solid fa-calendar-days"></i>
+                </button>
+                <input type="date" id="endDate" style="display: none" />
+
+                <button class="btn btn-light btn-sm shadow-sm mb-3">
+                  Priority <i class="fa-solid fa-flag text-gold"></i>
+                </button>
+                <button class="btn btn-light btn-sm shadow-sm mb-3 me-2">
+                  Marketing <i class="fa-solid fa-tags"></i>
+                </button>
+                <span>
+                  <i class="fa-solid fa-fill-drip text-muted"></i>
+                  |
+                  <i class="fa-solid fa-boxes-stacked text-muted"></i>
+                </span>
+              </div>
+              <div class="col-6 d-flex align-items-center mb-3">
+                <label
+                  for="dateInput"
+                  class="form-label text-nowrap text-muted me-2 fs-12 mb-0"
+                >
+                  Repeat End On
+                </label>
+                <input
+                  type="date"
+                  class="form-control text-muted"
+                  id="dateInput"
+                />
+              </div>
+              <div class="col-6 d-flex flex-wrap gap-1 text-muted">
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Sun"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Sun">Sun</label>
+                </div>
+
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Mon"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Mon">Mon</label>
+                </div>
+
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Tue"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Tue">Tue</label>
+                </div>
+
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Wed"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Wed">Wed</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Thu"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Thu">Thu</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Fri"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Fri">Fri</label>
+                </div>
+                <div class="form-check fs-14 me-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="Sat"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="Sat">Sat</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control shadow-sm rounded-4 shadow-sm"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 100px"
+                  ></textarea>
+                  <label for="floatingTextarea2" class="text-muted"
+                    >Add Note/Comments</label
+                  >
+                </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer d-flex align-content-center justify-content-between">
+          <div
+            class="modal-footer d-flex align-content-center justify-content-between"
+          >
             <div>
               <button class="btn btn-light btn-sm shadow-sm">View Files</button>
-              <button class="btn btn-light btn-sm shadow-sm">Add/Edit Files</button>
+              <button class="btn btn-light btn-sm shadow-sm">
+                Add/Edit Files
+              </button>
             </div>
             <div>
-              <button class="btn btn-outline-danger border-0 btn-sm shadow-sm">Delete <i class="fa-regular fa-trash-can"></i></button>
-              <button class="btn btn-outline-success border-0 btn-sm shadow-sm" id="submitEvent">Submit <i class="fa-solid fa-circle-check"></i></button>
+              <button class="btn btn-outline-danger border-0 btn-sm shadow-sm">
+                Delete <i class="fa-regular fa-trash-can"></i>
+              </button>
+              <button
+                class="btn btn-outline-success border-0 btn-sm shadow-sm"
+                id="submitEvent"
+              >
+                Submit <i class="fa-solid fa-circle-check"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!--------- modal for adding new sub heading -------->
+    <div
+      class="modal fade"
+      id="addSubChecklistModal"
+      tabindex="-1"
+      aria-labelledby="addSubChecklistModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addSubChecklistModalLabel">
+              Add Sub-checklist
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="subChecklistInput" class="form-label"
+                >Sub-checklist Item</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="subChecklistInput"
+                placeholder="Enter sub-checklist item"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              id="saveSubChecklist"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="fullcalendar/dist/index.global.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
       $(document).ready(function () {
-
         var selectedDate;
         var events = {};
-
         var calendarEl = document.getElementById("calendar");
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: "dayGridMonth",
           headerToolbar: {
             left: "prev,next",
             center: "title",
-            right: "dayGridMonth,dayGridWeek,dayGridDay,yearGrid",
+            right: "dayGridMonth,yearGrid,timeGridWeek,timeGridDay",
           },
           views: {
             yearGrid: {
@@ -82,171 +466,191 @@
           events: [],
           dateClick: function (info) {
             selectedDate = info.dateStr;
-            var myModal = new bootstrap.Modal(document.getElementById("exampleModal"));
+            var myModal = new bootstrap.Modal(
+              document.getElementById("exampleModal")
+            );
             myModal.show();
             updateEventList(selectedDate);
           },
         });
         calendar.render();
 
-        $('#submitEvent').on('click', function () {
-          if ($('#financeHead').is(':checked')) {
-            var title = $('#financeHead').val();
+        $("#submitEvent").on("click", function () {
+          if ($("#financeHead").is(":checked")) {
+            var title = $("#financeHead").val();
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+            var repeatEndDate = $("#dateInput").val();
+            var repeatDays = [];
 
-            if (!events[selectedDate]) {
-              events[selectedDate] = [];
+            // Collect checked sub-checklist items
+            var subItems = [];
+            $("#checklist input[type='checkbox']:checked").each(function () {
+              if ($(this).attr("id") !== "financeHead") {
+                subItems.push($(this).next("label").text().trim());
+              }
+            });
+
+            if (!startDate && !endDate) {
+              startDate = selectedDate;
+              endDate = selectedDate;
             }
 
-            events[selectedDate].push({
-              title: title,
-              date: selectedDate,
-            });
+            if (!events[startDate]) {
+              events[startDate] = [];
+            }
 
-            calendar.addEvent({
-              title: title,
-              start: selectedDate,
-            });
+            if (repeatEndDate && repeatDays.length > 0) {
+              var currentDate = new Date(startDate);
+              var endDateObj = new Date(repeatEndDate);
+              while (currentDate <= endDateObj) {
+                var dayOfWeek = currentDate.toLocaleString("en-us", {
+                  weekday: "short",
+                });
+                if (repeatDays.includes(dayOfWeek)) {
+                  var formattedDate = currentDate.toISOString().split("T")[0];
+                  events[formattedDate] = events[formattedDate] || [];
+                  events[formattedDate].push({
+                    title: title,
+                    start: formattedDate,
+                    end: formattedDate,
+                    subItems: subItems.slice(), // Use slice to clone array
+                  });
 
-            $('#exampleModal').modal('hide');
-            $('#financeHead').prop('checked', false);
-            updateEventList(selectedDate);
+                  calendar.addEvent({
+                    title: title,
+                    start: formattedDate,
+                    end: formattedDate,
+                  });
+                }
+                currentDate.setDate(currentDate.getDate() + 1);
+              }
+            } else {
+              events[startDate].push({
+                title: title,
+                start: startDate,
+                end: endDate,
+                subItems: subItems.slice(), // Use slice to clone array
+              });
+
+              calendar.addEvent({
+                title: title,
+                start: startDate,
+                end: endDate,
+              });
+            }
+
+            $("#exampleModal").modal("hide");
+            $("#financeHead").prop("checked", false);
+            $("#startDate").val("").hide();
+            $("#endDate").val("").hide();
+            $("#dateInput").val("");
+            $(".choose-repetition")
+              .removeClass("btn-dark")
+              .addClass("btn-light");
+            updateEventList(startDate); // Update event list display
           }
         });
 
+        // Date pickers toggle
+        $("#pickStartDateToggle").on("click", function () {
+          $("#startDate").toggle().focus();
+        });
+
+        $("#pickEndDateToggle").on("click", function () {
+          $("#endDate").toggle().focus();
+        });
+
+        // Choose Repetitions button toggle
+        $(".choose-repetition").on("click", function () {
+          $(this).toggleClass("btn-dark btn-light");
+        });
+
+        // Clear modal fields on close
+        $("#exampleModal").on("hidden.bs.modal", function () {
+          $("#startDate").val("").hide();
+          $("#endDate").val("").hide();
+          $("#dateInput").val("");
+          $(".choose-repetition").removeClass("btn-dark").addClass("btn-light");
+        });
+
+        // Function to update event list display
         function updateEventList(date) {
-          var eventList = $('#event-list');
+          var eventList = $("#event-list");
           eventList.empty();
 
           if (events[date]) {
-            events[date].forEach(function (event) {
+            events[date].forEach(function (event, index) {
+              var uniqueId = date + "-" + index;
               var cardHtml = `
-               <div class="card mb-3">
-                <div class="month display-center">
-                  <h5>${event.date}</h5>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-8">
-                      <div
-                        class="d-flex align-items-center justify-content-start"
-                      >
-                        <h5 class="text-blue fw-bold mb-2">
-                          <input
-                            class="btn-box-18 accent-blue me-2"
-                            type="checkbox"
-                            value=""
-                            id="financeHead"
-                          />
-                          <label for="financeHead">  ${event.title}  </label>
-                        </h5>
-                      </div>
-                      <ul class="list-group mb-3">
-                        <li
-                          class="list-group-item border-0 d-flex justify-content-between align-items-center py-0"
-                        >
-                          <div
-                            class="text-truncate d-flex align-items-center justify-content-start me-2"
-                          >
-                            <input
-                              class="accent-blue me-2"
-                              type="checkbox"
-                              value=""
-                              id="firstCheckbox"
-                            />
-                            <label
-                              class="form-check-label text-truncate"
-                              for="firstCheckbox"
-                            >
-                              Pay figma payment
-                            </label>
-                          </div>
-                          <span class="cursor-pointer">
-                            <i
-                              class="fa-regular fa-trash-can cursor-pointer text-blue"
-                            ></i>
-                          </span>
-                        </li>
-                        <li
-                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
-                        >
-                          <div
-                            class="text-truncate d-flex align-items-center justify-content-start me-2"
-                          >
-                            <input
-                              class="accent-blue me-2"
-                              type="checkbox"
-                              value=""
-                              id="secondCheckbox"
-                            />
-                            <label
-                              class="form-check-label text-truncate"
-                              for="secondCheckbox"
-                            >
-                              Adobe Premier pro
-                            </label>
-                          </div>
-                          <span class="">
-                            <i
-                              class="fa-regular fa-trash-can cursor-pointer text-blue"
-                            ></i>
-                          </span>
-                        </li>
-                        <li
-                          class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0"
-                        >
-                          <div
-                            class="text-truncate d-flex align-items-center justify-content-start me-2"
-                          >
-                            <input
-                              class="accent-blue me-2"
-                              type="checkbox"
-                              value=""
-                              id="thirdCheckbox"
-                            />
-                            <label
-                              class="form-check-label text-truncate"
-                              for="thirdCheckbox"
-                            >
-                              Canva pro plan render
-                            </label>
-                          </div>
-                          <span class="">
-                            <i
-                              class="fa-regular fa-trash-can cursor-pointer text-blue"
-                            ></i>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-4">
-                      <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
-                      <div class="display-center h-100">
-                        <div class="progress-container">
-                          <div class="progress-circle" id="progress-circle">
-                            <div class="progress-inner-circle"></div>
-                            <div class="progress-text">
-                              <h5>5</h5>
-                              <p>Days Left</p>
-                            </div>
-                          </div>
+                    <div class="card mb-3">
+                        <div class="month display-center">
+                            <h5>${event.start} to ${event.end}</h5>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
-                    Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
-                    Share Checklist <i class="fa-solid fa-share-nodes"></i>
-                  </button>
-                  <button class="btn btn-sm btn-outline-primary px-1 py-0">
-                    3 Files Attached <i class="fa-solid fa-pencil"></i>
-                  </button>
-                </div>
-              </div>`;
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="d-flex align-items-center justify-content-start">
+                                        <h5 class="text-blue fw-bold mb-2">
+                                            <input class="btn-box-18 accent-blue me-2" type="checkbox" value="" id="financeHead-${uniqueId}" />
+                                            <label for="financeHead-${uniqueId}">${
+                event.title
+              }</label>
+                                        </h5>
+                                    </div>
+                                    <ul class="list-group mb-3" id="checklist-${uniqueId}">
+                                        ${generateSubChecklist(event, uniqueId)}
+                                    </ul>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fa-solid fa-bookmark progress_bar_bookmark"></i>
+                                    <div class="display-center h-100">
+                                        <div class="progress-container">
+                                            <div class="progress-circle" id="progress-circle">
+                                                <div class="progress-inner-circle"></div>
+                                                <div class="progress-text">
+                                                    <h5>5</h5>
+                                                    <p>Days Left</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                                Edit Checklist <i class="fa-regular fa-pen-to-square"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                                Share Checklist <i class="fa-solid fa-share-nodes"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary px-1 py-0">
+                                3 Files Attached <i class="fa-solid fa-pencil"></i>
+                            </button>
+                        </div>
+                    </div>`;
               eventList.append(cardHtml);
             });
           }
+        }
+
+        // Function to generate sub-checklist items HTML
+        function generateSubChecklist(event, uniqueId) {
+          var subChecklist = "";
+          event.subItems.forEach(function (item, index) {
+            subChecklist += `
+                <li class="list-group-item border-0 d-flex justify-content-between align-items-center pb-0">
+                    <div class="text-truncate d-flex align-items-center justify-content-start me-2">
+                        <input class="accent-blue me-2" type="checkbox" value="" id="subCheckbox-${uniqueId}-${index}" />
+                        <label class="form-check-label text-truncate" for="subCheckbox-${uniqueId}-${index}">
+                            ${item}
+                        </label>
+                    </div>
+                    <span class="">
+                        <i class="fa-regular fa-trash-can cursor-pointer text-blue"></i>
+                    </span>
+                </li>`;
+          });
+          return subChecklist;
         }
       });
     </script>
